@@ -62,7 +62,7 @@ public class Bmi extends AppCompatActivity implements View.OnClickListener {
     void openOptionsDialog(){
         View rootview = getLayoutInflater().inflate(R.layout.gridlayout, null);
         Button buttonAdd = rootview.findViewById(R.id.buttonAdd);
-
+//add this for Listener
         buttonAdd.setOnClickListener(dialogListener);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
