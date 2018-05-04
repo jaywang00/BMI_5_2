@@ -63,6 +63,7 @@ public class Bmi extends AppCompatActivity implements View.OnClickListener {
         View rootview = getLayoutInflater().inflate(R.layout.gridlayout, null);
         Button buttonAdd = rootview.findViewById(R.id.buttonAdd);
 
+        buttonAdd.setOnClickListener(dialogListener);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.about_title);
@@ -79,10 +80,18 @@ public class Bmi extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-    DialogInterface.OnClickListener dialogListener = new DialogInterface.OnClickListener() {
+    View.OnClickListener dialogListener = new View.OnClickListener() {
         @Override
-        public void onClick(DialogInterface dialog, int which) {
-            System.out.println("按下了確認鈕");
+        public void onClick(View v) {
+            System.out.println("Click the SelfDefined Dialog");
+
         }
     };
+
+//    DialogInterface.OnClickListener dialogListener = new DialogInterface.OnClickListener() {
+//        @Override
+//        public void onClick(DialogInterface dialog, int which) {
+//            System.out.println("按下了確認鈕");
+//        }
+//    };
 }
