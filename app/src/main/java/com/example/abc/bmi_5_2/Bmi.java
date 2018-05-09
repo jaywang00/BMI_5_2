@@ -1,5 +1,6 @@
 package com.example.abc.bmi_5_2;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -33,6 +34,12 @@ public class Bmi extends AppCompatActivity implements View.OnClickListener {
         field_weight = findViewById(R.id.field_weight);
         result = findViewById(R.id.result);
         suggest = findViewById(R.id.suggest);
+
+
+
+//        rootView = getLayoutInflater().inflate(R.layout.dial_keypad, null);
+//        buton0 = rootView
+
     }
 
     private void setListeners(){
@@ -60,24 +67,32 @@ public class Bmi extends AppCompatActivity implements View.OnClickListener {
     }
 
     void openOptionsDialog(){
-        View rootview = getLayoutInflater().inflate(R.layout.gridlayout, null);
-        Button buttonAdd = rootview.findViewById(R.id.buttonAdd);
-//add this for Listener
-        buttonAdd.setOnClickListener(dialogListener);
+//        View rootview = getLayoutInflater().inflate(R.layout.d, null);
+//        Button buttonAdd = rootview.findViewById(R.id.buttonAdd);
+////add this for Listener
+//        buttonAdd.setOnClickListener(dialogListener);
+//
+//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//
+//        builder.setView(rootview);
+//
+//
+//        builder.show();
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setTitle(R.string.about_title);
-//        builder.setMessage(R.string.about_msg);
+        final ProgressDialog progressDialog = ProgressDialog.show(Bmi.this,"Processing, please wait", "After finishing this process will be ended.");
+            Thread thread = new Thread(){
+                @Override
+                public void run(){
+                    try{
+                        Thread.sleep(5000);
+                    }catch (InterruptedException e){
+                        e.printStackTrace();
+                    }
+                    progressDialog.dismiss();
+                }
 
-
-//        Button button = new Button(Bmi.this);
-//        button.setText("OK");
-//        builder.setView(button);
-        builder.setView(rootview);
-
-//        builder.setPositiveButton("確認",dialogListener);
-        builder.show();
-
+        };
+        thread.start();
     }
 
     View.OnClickListener dialogListener = new View.OnClickListener() {
@@ -88,10 +103,5 @@ public class Bmi extends AppCompatActivity implements View.OnClickListener {
         }
     };
 
-//    DialogInterface.OnClickListener dialogListener = new DialogInterface.OnClickListener() {
-//        @Override
-//        public void onClick(DialogInterface dialog, int which) {
-//            System.out.println("按下了確認鈕");
-//        }
-//    };
+
 }
