@@ -23,9 +23,9 @@ public class Bmi extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bmi);
-        findViews();
-        setListeners();
+        setContentView(R.layout.custom_button);
+//        findViews();
+//        setListeners();
     }
 
     private void findViews(){
