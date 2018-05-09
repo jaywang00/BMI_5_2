@@ -83,13 +83,17 @@ public class Bmi extends AppCompatActivity implements View.OnClickListener {
 
         final ProgressDialog progressDialog = new ProgressDialog(Bmi.this );
         progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDialog.setMax(100);
         progressDialog.show();
 
         Thread thread = new Thread(){
                 @Override
                 public void run(){
                     try{
-                        Thread.sleep(5000);
+                        for(int i = 0 ; i <= 100 ; i++){
+                            progressDialog.setProgress(i);
+                            Thread.sleep(100);
+                        }
                     }catch (InterruptedException e){
                         e.printStackTrace();
                     }
