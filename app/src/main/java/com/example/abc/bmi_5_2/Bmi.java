@@ -95,6 +95,7 @@ public class Bmi extends AppCompatActivity implements View.OnClickListener {
             thread.start();
     }
 
+
     View.OnClickListener dialogListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
