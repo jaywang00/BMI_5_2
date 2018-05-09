@@ -79,8 +79,13 @@ public class Bmi extends AppCompatActivity implements View.OnClickListener {
 //
 //        builder.show();
 
-        final ProgressDialog progressDialog = ProgressDialog.show(Bmi.this,"Processing, please wait.....", "After finishing this process will be ended.");
-            Thread thread = new Thread(){
+//        final ProgressDialog progressDialog = ProgressDialog.show(Bmi.this,"Processing, please wait.....", "After finishing this process will be ended.");
+
+        final ProgressDialog progressDialog = new ProgressDialog(Bmi.this );
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDialog.show();
+
+        Thread thread = new Thread(){
                 @Override
                 public void run(){
                     try{
